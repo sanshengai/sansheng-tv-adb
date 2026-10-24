@@ -4,7 +4,7 @@
 
 [中文](./README.md) | **English**
 
-A 2017 Hisense TV with 2 GB of RAM: after the cleanup the boot ad was gone and available memory went from 551 MB to 988 MB, and I never typed a command (the full story, in Chinese: [the article](https://mp.weixin.qq.com/s/kUsc1V7OzcItR09xsixNzA)). This repository turns that evening into an Agent Skill, plus a developer-mode entry library covering **22 brands and 81 series** and twelve safety gates, so the next person does not have to figure it out alone.
+A 2017 Hisense TV with 2 GB of RAM: after the cleanup the boot ad was gone and available memory went from 551 MB to 988 MB, and I never typed a command (the full story, in Chinese: [the article](https://mp.weixin.qq.com/s/kUsc1V7OzcItR09xsixNzA)). This repository turns that evening into an Agent Skill, plus a developer-mode entry library covering **23 brands and 82 series** and twelve safety gates, so the next person does not have to figure it out alone.
 
 ## 30-second check: can your TV be done, and is it worth it?
 
@@ -80,7 +80,7 @@ Plain-language disclaimer: changing the wrong item in a factory menu can hurt th
 
 ## What is in the entry library
 
-`data/brands/*.json`: 22 brands, 81 series, every entry with sources and an evidence level (tested-by-us > official > multiple sources > single source). Human-readable version in `references/entry-by-brand.md`. Only two sets have been tested by us so far (2017 Hisense VIDAA, 2013 Sharp/Lenovo); everything else is labelled honestly, and gaps are listed under each brand's `open_questions` waiting for contributions.
+`data/brands/*.json`: 23 brands, 82 series, every entry with sources and an evidence level (tested-by-us > official > multiple sources > single source). Human-readable version in `references/entry-by-brand.md`. Only two sets have been tested by us so far (2017 Hisense VIDAA, 2013 Sharp/Lenovo); everything else is labelled honestly, and gaps are listed under each brand's `open_questions` waiting for contributions.
 
 CLI quick reference:
 
