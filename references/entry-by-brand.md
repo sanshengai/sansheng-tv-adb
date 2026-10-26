@@ -556,6 +556,24 @@
 - 坑：adb connect 之后设备状态显示 offline，或提示 already connected 装不上东西：先 adb disconnect → adb kill-server → adb start-server 重连，还不行就回电视端把 ADB 开关关掉再打开。
 - 坑：「上上下下左右左右」最常见的失败原因是节奏太快或记成了「上上下下左左右右」，多篇教程专门强调要缓慢、且是「左右左右」。
 
+### 夏华 PRIMA 4S875_Z25X（创维代工，酷开系统，Android 8.0）（固件日期 2020-11-17（上市年份未提供），android Android 8.0.0（投稿者报告））
+
+- 认：社区投稿，维护者未实测。品牌为夏华 PRIMA，但「关于本机」显示的是酷开系统、机芯 4S875_Z25X，属于创维代工机型，按创维/酷开路径处理。遥控器无数字键。
+- 值不值：投稿者报告停用 4 个包后可用内存由 739 MB 增至 1059 MB（约 +320 MB）；总运存未提供。
+
+**夏华 PRIMA 4S875_Z25X（社区投稿，维护者未实测）** · 证据：单源
+1. 设置 → 关于本机 → 进入「本机信息」子页面，停在这一页
+2. 方向键缓慢依次按：上、上、下、下、左、右、左、右
+3. 进入工厂菜单 →「通用设置」→ 把「ADB」设为「开」
+4. 连按返回键退出；投稿者报告无需断电重启即生效
+5. 电脑执行 adb connect <电视IP>:5555
+- 授权弹窗：无；端口 5555
+- ⚠ 只改「ADB」这一项，工厂菜单其它参数不要动。该机连接时无授权弹窗，工厂菜单 ADB 开关本身即授权，局域网内任何设备都可连接，做完清理建议回工厂菜单关闭 ADB。
+- 来源：[社区投稿（issue #2，lujay）：夏华 PRIMA 4S875_Z25X，Android 8.0.0，固件 2020-11-17](https://github.com/sanshengai/sansheng-tv-adb/issues/2) 2026-10-23
+- 命令能力：disable-user=yes · hide=no · uninstall-user0=unknown（社区投稿（issue #2），维护者未实测：pm disable-user --user 0 <包名> 可用，停用与还原（pm enable <包名>）均成功，投稿者报告重启后停用状态保持；pm hide 报 SecurityException: Neither user 2000 nor current process has android.permission.MANAGE_USERS；pm uninstall -k --user 0 未试。注意：这与本文件 6.x / 8.x 代「disable-user 报 SecurityException」的单源记录不一致，结论只适用于本机型，不外推。）
+- 可停（3）：`com.tianci.ad`、`com.tianci.push`、`com.coocaa.mall`
+- 看你用不用（1）：`com.skyworth.lafite.srtnj.speechserver`
+
 ### 酷开 AIOS / Coolita AIOS（2024 年 4 月发布系统，2024 年 9 月首款搭载机型酷开 K3 Pro；2024 年 10 月以「Coolita AIOS」名义在广交会作为出海系统亮相，android 官方未公开底层 AOSP 版本）
 
 - 认：开机后桌面是「AI 智控桌面」，首页以对话式/智能体入口为主（影音、娱乐、生活、健康、教育、通用六个智能体），而不是老版的横向 Tab 瀑布流；遥控器有独立 AI/语音键，喊话可以直接跳到影视片段。海外机型上这套系统叫 Coolita。
@@ -591,6 +609,7 @@
 - 早期非智能/半智能创维机型流传「按住机身或遥控器菜单键不放，再依次按 9、7、8」进工厂模式的说法（2016 年搜狐汇总帖），与本文件收录的智能电视路径是两套东西，未验证，也不适用于本项目要处理的安卓机型。
 - com.coocaa.remotectrlservice、com.mstar.android.providers.tv 等包在原始拆机帖里被作者标注为「不确定能不能删」，没有第二个独立来源，本文件没有收进任何一组名单。
 - 社区里存在针对酷开系统的 root 讨论（例如用 root 让 pm hide 持久生效），本项目不采用。
+- 夏华 PRIMA 4S875_Z25X（issue #2 社区投稿）缺：getprop ro.build.fingerprint、总运存、pm uninstall -k --user 0 是否可用、哪些包不能停（must_keep 未提供）、关于本机页截图；disable-user 可用的结论与 6.x/8.x 单源记录相反，需第二台同机芯机器或维护者实测确认。
 
 ## 索尼 Sony BRAVIA · 适用
 

@@ -1,7 +1,7 @@
 {
   "brand": "创维 / 酷开 / Skyworth / Coocaa",
   "region": "both",
-  "aliases": ["创维", "酷开", "Skyworth", "SkyWorth", "Coocaa", "coocaa", "酷开科技", "天赐系统", "Coolita", "Coolita AIOS"],
+  "aliases": ["创维", "酷开", "Skyworth", "SkyWorth", "Coocaa", "coocaa", "酷开科技", "天赐系统", "Coolita", "Coolita AIOS", "夏华", "PRIMA", "夏华 PRIMA"],
   "status": "适用",
   "summary": "能做：绝大多数国内创维/酷开机型走「本机信息 → 上上下下左右左右 → 工厂菜单 → 打开 ADB」，是国产电视里入口最稳定、教程最多的一家；但工厂菜单是厂商自制界面，只能动 ADB 那一项。值不值得：2019 年前的 1–2GB 机型收益最大；2024 年后的 AIOS 机型社区还没有实测教程，先别指望。",
   "identify_hints": {
@@ -329,6 +329,109 @@
       ]
     },
     {
+      "name": "夏华 PRIMA 4S875_Z25X（创维代工，酷开系统，Android 8.0）",
+      "years": "固件日期 2020-11-17（上市年份未提供）",
+      "base_os": "android",
+      "android_version_range": "Android 8.0.0（投稿者报告）",
+      "models_examples": [
+        "夏华 PRIMA（机芯 4S875_Z25X）"
+      ],
+      "identify_hints": "社区投稿，维护者未实测。品牌为夏华 PRIMA，但「关于本机」显示的是酷开系统、机芯 4S875_Z25X，属于创维代工机型，按创维/酷开路径处理。遥控器无数字键。",
+      "worth_it_hint": "投稿者报告停用 4 个包后可用内存由 739 MB 增至 1059 MB（约 +320 MB）；总运存未提供。",
+      "entries": [
+        {
+          "applies_to": "夏华 PRIMA 4S875_Z25X（社区投稿，维护者未实测）",
+          "steps": [
+            "设置 → 关于本机 → 进入「本机信息」子页面，停在这一页",
+            "方向键缓慢依次按：上、上、下、下、左、右、左、右",
+            "进入工厂菜单 →「通用设置」→ 把「ADB」设为「开」",
+            "连按返回键退出；投稿者报告无需断电重启即生效",
+            "电脑执行 adb connect <电视IP>:5555"
+          ],
+          "has_auth_prompt": false,
+          "wireless_pairing": false,
+          "port": 5555,
+          "evidence_level": "单源",
+          "sources": [
+            {
+              "url": "https://github.com/sanshengai/sansheng-tv-adb/issues/2",
+              "title": "社区投稿（issue #2，lujay）：夏华 PRIMA 4S875_Z25X，Android 8.0.0，固件 2020-11-17",
+              "date": "2026-10-23"
+            }
+          ],
+          "verified_by": "社区投稿（issue #2，lujay，2026-10-23），维护者未实测",
+          "risk_notes": "只改「ADB」这一项，工厂菜单其它参数不要动。该机连接时无授权弹窗，工厂菜单 ADB 开关本身即授权，局域网内任何设备都可连接，做完清理建议回工厂菜单关闭 ADB。"
+        }
+      ],
+      "pm_caps": {
+        "disable_user": "yes",
+        "hide": "no",
+        "uninstall_user0": "unknown",
+        "notes": "社区投稿（issue #2），维护者未实测：pm disable-user --user 0 <包名> 可用，停用与还原（pm enable <包名>）均成功，投稿者报告重启后停用状态保持；pm hide 报 SecurityException: Neither user 2000 nor current process has android.permission.MANAGE_USERS；pm uninstall -k --user 0 未试。注意：这与本文件 6.x / 8.x 代「disable-user 报 SecurityException」的单源记录不一致，结论只适用于本机型，不外推。",
+        "evidence_level": "单源",
+        "sources": [
+          {
+            "url": "https://github.com/sanshengai/sansheng-tv-adb/issues/2",
+            "title": "社区投稿（issue #2，lujay）：夏华 PRIMA 4S875_Z25X，Android 8.0.0，固件 2020-11-17",
+            "date": "2026-10-23"
+          }
+        ]
+      },
+      "junk": [
+        {
+          "pkg": "com.tianci.ad",
+          "what": "酷开广告服务（开关机广告）",
+          "evidence_level": "单源",
+          "sources": [
+            {
+              "url": "https://github.com/sanshengai/sansheng-tv-adb/issues/2",
+              "title": "社区投稿（issue #2，lujay）：夏华 PRIMA 4S875_Z25X，Android 8.0.0，固件 2020-11-17",
+              "date": "2026-10-23"
+            }
+          ]
+        },
+        {
+          "pkg": "com.tianci.push",
+          "what": "系统推送服务（广告推送通道）",
+          "evidence_level": "单源",
+          "sources": [
+            {
+              "url": "https://github.com/sanshengai/sansheng-tv-adb/issues/2",
+              "title": "社区投稿（issue #2，lujay）：夏华 PRIMA 4S875_Z25X，Android 8.0.0，固件 2020-11-17",
+              "date": "2026-10-23"
+            }
+          ]
+        },
+        {
+          "pkg": "com.coocaa.mall",
+          "what": "酷开购物",
+          "evidence_level": "单源",
+          "sources": [
+            {
+              "url": "https://github.com/sanshengai/sansheng-tv-adb/issues/2",
+              "title": "社区投稿（issue #2，lujay）：夏华 PRIMA 4S875_Z25X，Android 8.0.0，固件 2020-11-17",
+              "date": "2026-10-23"
+            }
+          ]
+        }
+      ],
+      "ask_user": [
+        {
+          "pkg": "com.skyworth.lafite.srtnj.speechserver",
+          "what": "语音助手服务",
+          "evidence_level": "单源",
+          "sources": [
+            {
+              "url": "https://github.com/sanshengai/sansheng-tv-adb/issues/2",
+              "title": "社区投稿（issue #2，lujay）：夏华 PRIMA 4S875_Z25X，Android 8.0.0，固件 2020-11-17",
+              "date": "2026-10-23"
+            }
+          ],
+          "why": "停用后语音功能不可用；投稿者是自己不用语音才停的，是否停由用户决定"
+        }
+      ]
+    },
+    {
       "name": "酷开 AIOS / Coolita AIOS",
       "years": "2024 年 4 月发布系统，2024 年 9 月首款搭载机型酷开 K3 Pro；2024 年 10 月以「Coolita AIOS」名义在广交会作为出海系统亮相",
       "base_os": "android",
@@ -397,7 +500,8 @@
     "酷开系统 7.0 / 7.5 这一代缺少独立的 ADB 开启实测帖，本文件里 7.x 的路径是按 6.x/8.x 的通用规律外推的，工厂菜单各级子菜单名称是否一致未核实。",
     "早期非智能/半智能创维机型流传「按住机身或遥控器菜单键不放，再依次按 9、7、8」进工厂模式的说法（2016 年搜狐汇总帖），与本文件收录的智能电视路径是两套东西，未验证，也不适用于本项目要处理的安卓机型。",
     "com.coocaa.remotectrlservice、com.mstar.android.providers.tv 等包在原始拆机帖里被作者标注为「不确定能不能删」，没有第二个独立来源，本文件没有收进任何一组名单。",
-    "社区里存在针对酷开系统的 root 讨论（例如用 root 让 pm hide 持久生效），本项目不采用。"
+    "社区里存在针对酷开系统的 root 讨论（例如用 root 让 pm hide 持久生效），本项目不采用。",
+    "夏华 PRIMA 4S875_Z25X（issue #2 社区投稿）缺：getprop ro.build.fingerprint、总运存、pm uninstall -k --user 0 是否可用、哪些包不能停（must_keep 未提供）、关于本机页截图；disable-user 可用的结论与 6.x/8.x 单源记录相反，需第二台同机芯机器或维护者实测确认。"
   ],
-  "last_reviewed": "2026-09-15"
+  "last_reviewed": "2026-10-26"
 }
